@@ -1,0 +1,4 @@
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie) 
+WITH p,count(m) as n, collect(m) as movies
+WHERE  n > 0
+RETURN p, movies,n

@@ -1,0 +1,3 @@
+MATCH (d { name: 'Darjeeling' }), (s { name: 'Sandakphu' })
+MATCH paths = (darjeeling)-[*]->(s)
+RETURN paths

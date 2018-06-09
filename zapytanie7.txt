@@ -1,0 +1,18 @@
+CREATE (CA:Movie {title:'Captain America: The First Avenger', released:2011, tagline:'Captain America'})
+CREATE (Chris:Person {name:'Chris Evans', born:1981})
+CREATE (Hayley:Person {name:'Hayley Atwell', born:1982})
+CREATE (Laurence:Person {name:'Sebastian Stan', born:1982})
+CREATE (Joe:Person {name:'Joe Johnston', born:1950})
+CREATE (Victoria:Person {name:'Victoria Alonso', born:1965})
+CREATE
+  (Chris)-[:ACTED_IN {roles:['Captain America']}]->(CA),
+  (Hayley)-[:ACTED_IN {roles:['Peggy Carter']}]->(CA),
+  (Laurence)-[:ACTED_IN {roles:['James Buchanan Bucky Barnes']}]->(CA),
+  (Joe)-[:DIRECTED]->(CA),
+  (Victoria)-[:PRODUCED]->(CA)
+
+
+
+MATCH (a:Person)-->(m:Movie)
+WHERE m.title= 'Captain America: The First Avenger'
+RETURN a, m

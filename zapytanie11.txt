@@ -1,0 +1,5 @@
+MATCH (d { name: 'Darjeeling' }), (s { name: 'Sandakphu' })
+MATCH paths = (d)-[*]->(s)
+With paths, reduce(t = 0, e IN relationships(paths)| t + e.distance) AS totalDistance 
+return paths, totalDistance
+order by totalDistance

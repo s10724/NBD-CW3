@@ -1,0 +1,3 @@
+MATCH (d { name: 'Darjeeling' }),(s { name: 'Sandakphu' }), paths = allShortestPaths((d)-[*]-(s))
+WHERE ALL (p IN relationships(paths) WHERE p.winter = "true")
+RETURN paths
